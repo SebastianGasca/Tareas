@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 const Home = props => {
     const [usuario, setusuario] = useState("")
     const [descrip, setdescrip] = useState("")
+    
     const [datos, setdatos] = useState([
         /* {id:2,user:"Marcia",Descr:"Juega"},
         {id:3,user:"Vitto",Descr:"Dibuja"},
@@ -11,21 +12,29 @@ const Home = props => {
         {id:5,user:"Yara",Descr:"Programa"} */
 
     ]);
+    console.log(datos)
+
     const [swit, setswit] = useState(true)
     const [indice, setindice] = useState()
+
     const [newdescrip, setnewdescrip] = useState()
 
     const addtask = (e) => {
         e.preventDefault()
 
-        if (usuario == "") { swal("Falta agregar nombre de usuario") }
-        else if (descrip == "") { swal("Falta agregar descripcion del usuario") }
-
+        if (usuario == "") {
+             swal("Falta agregar nombre de usuario") }
+        else if (descrip == "") { 
+            swal("Falta agregar descripcion del usuario") }
+        else if (datos == "") {
+            setdatos([
+                { id:1, user: usuario, Descr: descrip }
+            ])
+        }
         else {
             setdatos([
                 ...datos,
-                /* {id:1,user:"Marcia", Descr:"Juega"} */
-                { id:datos.length+1, user: usuario, Descr: descrip },
+                { id:datos[datos.length-1].id+1, user: usuario, Descr: descrip },
             ]
             )
             swal("Se agrego correctamente el registro")
@@ -44,6 +53,7 @@ const Home = props => {
 
     const moditask = (e) => {
         e.preventDefault()
+        datos[indice].user = datos[indice].user
         datos[indice].Descr = newdescrip
         setswit(!swit)
     }
