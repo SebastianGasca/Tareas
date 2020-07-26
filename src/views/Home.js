@@ -30,6 +30,7 @@ const Home = props => {
             setdatos([
                 { id:1, user: usuario, Descr: descrip }
             ])
+            swal("","","success")
         }
         else {
             setdatos([
@@ -37,7 +38,7 @@ const Home = props => {
                 { id:datos[datos.length-1].id+1, user: usuario, Descr: descrip },
             ]
             )
-            swal("Se agrego correctamente el registro")
+            swal("","","success")
         }
 
         resetFormulario()
@@ -189,7 +190,7 @@ const Home = props => {
 
                                         <i className="btn fas fa-trash" onClick={() => {
                                             deletetask(i)
-                                            swal("Seguro?", "You clicked the button!", "warning")
+                                            swal("", "", "error")
                                         }}></i>
                                     </td>
                                 </tr>
