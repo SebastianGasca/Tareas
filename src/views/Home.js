@@ -137,7 +137,7 @@ const Home = props => {
                                     <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                                 </div>
                                 <button id="bedit" type="submit" className="btn btn-success">Editar</button>
-                                <button id="bcancel" type="button" className="btn btn-danger" onClick={()=> setswit(!swit) }>Cancelar</button>
+                                {/* <button id="bcancel" className="btn btn-danger" onClick={()=> setswit(!swit) }>Cancelar</button> */}
 
                             </form>
                         </div>
